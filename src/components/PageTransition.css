@@ -1,0 +1,42 @@
+.page-transition {
+  will-change: opacity, transform;
+}
+
+.page-transition--idle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition--exit {
+  animation: pageExit 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.page-transition--enter {
+  animation: pageEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+    filter: blur(2px);
+  }
+}
+
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}

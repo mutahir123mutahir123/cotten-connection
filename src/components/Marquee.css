@@ -1,0 +1,143 @@
+.marquee {
+  padding: var(--space-2xl) 0;
+  background: #F0EBE3;
+  overflow: hidden;
+}
+
+.marquee__container::before {
+  left: 0;
+  background: linear-gradient(to right, #F0EBE3, transparent);
+}
+
+.marquee__container::after {
+  right: 0;
+  background: linear-gradient(to left, #F0EBE3, transparent);
+}
+
+.marquee__container {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee__container::before,
+.marquee__container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee__container::before {
+  left: 0;
+  background: linear-gradient(to right, #FAF7F2, transparent);
+}
+
+.marquee__container::after {
+  right: 0;
+  background: linear-gradient(to left, #FAF7F2, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  width: fit-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee__content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding-right: var(--space-2xl);
+}
+
+.marquee__text {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-charcoal);
+  background: transparent;
+  -webkit-text-fill-color: var(--color-charcoal);
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Offer section */
+.marquee__offer {
+  margin-top: var(--space-lg);
+  padding: var(--space-md) 0;
+  background: var(--color-gradient);
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee__offer::before,
+.marquee__offer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee__offer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-coral), transparent);
+}
+
+.marquee__offer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-purple), transparent);
+}
+
+.marquee__offer-track {
+  display: flex;
+  width: fit-content;
+  animation: marquee-offer-scroll 20s linear infinite;
+}
+
+.marquee__offer-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding-right: var(--space-2xl);
+}
+
+.marquee__offer-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-white);
+  white-space: nowrap;
+  padding: 0 var(--space-2xl);
+}
+
+@keyframes marquee-offer-scroll {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee__text {
+    font-size: 24px;
+  }
+
+  .marquee__offer-text {
+    font-size: 14px;
+  }
+}

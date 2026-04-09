@@ -1,0 +1,218 @@
+.collection-page {
+  padding-top: var(--navbar-height);
+  min-height: 100vh;
+}
+
+/* ---- Hero Banner ---- */
+.collection-page__hero {
+  position: relative;
+  height: 380px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.collection-page__hero-bg {
+  position: absolute;
+  inset: 0;
+}
+.collection-page__hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collection-page__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26, 26, 26, 0.7) 0%,
+    rgba(26, 26, 26, 0.25) 60%,
+    rgba(26, 26, 26, 0.1) 100%
+  );
+}
+
+.collection-page__hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 48px;
+  color: var(--color-white);
+}
+
+.collection-page__hero-content h1 {
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 12px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.collection-page__hero-content p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 640px;
+}
+
+/* Breadcrumb */
+.collection-page__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.collection-page__breadcrumb a {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color var(--transition-fast);
+}
+.collection-page__breadcrumb a:hover {
+  color: var(--color-gold-light);
+}
+.collection-page__breadcrumb span {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ---- Subcategories ---- */
+.collection-page__subcategories {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 32px 0 16px;
+}
+
+.collection-page__subcat {
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  color: var(--color-charcoal);
+  border: 1.5px solid var(--color-linen);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.collection-page__subcat:hover {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+.collection-page__subcat.active {
+  background: var(--color-teal);
+  color: var(--color-white);
+  border-color: var(--color-teal);
+}
+
+/* ---- Products Grid ---- */
+.collection-page__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: var(--space-2xl);
+}
+
+/* ---- Explore Other Collections ---- */
+.collection-page__other {
+  padding: var(--space-xl) 0 var(--space-2xl);
+  border-top: 1px solid var(--color-linen);
+}
+
+.collection-page__other h2 {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.collection-page__other-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.collection-page__other-card {
+  position: relative;
+  height: 220px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.collection-page__other-card:hover {
+  transform: scale(1.03);
+}
+
+.collection-page__other-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.collection-page__other-card:hover img {
+  transform: scale(1.08);
+}
+
+.collection-page__other-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 26, 26, 0.6) 0%, transparent 60%);
+}
+
+.collection-page__other-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  color: var(--color-white);
+}
+.collection-page__other-info h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 2px;
+}
+.collection-page__other-info span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .collection-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .collection-page__other-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .collection-page__hero-content h1 {
+    font-size: 40px;
+  }
+  .collection-page__hero {
+    height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .collection-page__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto var(--space-2xl);
+  }
+  .collection-page__other-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .collection-page__other-card {
+    height: 160px;
+  }
+  .collection-page__hero {
+    height: 280px;
+  }
+  .collection-page__hero-content h1 {
+    font-size: 32px;
+  }
+  .collection-page__hero-content p {
+    font-size: 15px;
+  }
+}

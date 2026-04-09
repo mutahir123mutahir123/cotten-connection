@@ -1,0 +1,78 @@
+.carousel {
+  position: relative;
+}
+
+.carousel__viewport {
+  overflow: hidden;
+}
+
+.carousel__container {
+  display: flex;
+}
+
+.carousel__container--horizontal {
+  margin-left: -16px;
+}
+
+.carousel__container--vertical {
+  flex-direction: column;
+  margin-top: -16px;
+}
+
+.carousel__item {
+  min-width: 0;
+  flex: 0 0 100%;
+  basis: 100%;
+}
+
+.carousel__item--horizontal {
+  padding-left: 16px;
+}
+
+.carousel__item--vertical {
+  padding-top: 16px;
+}
+
+.carousel__button {
+  position: absolute;
+}
+
+.carousel__button--horizontal {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel__button--horizontal.carousel__button--prev {
+  left: -44px;
+}
+
+.carousel__button--horizontal.carousel__button--next {
+  right: -44px;
+}
+
+.carousel__button--vertical {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel__button--vertical.carousel__button--prev {
+  top: -44px;
+  transform: rotate(90deg) translateX(-50%);
+}
+
+.carousel__button--vertical.carousel__button--next {
+  bottom: -44px;
+  transform: rotate(90deg) translateX(-50%);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

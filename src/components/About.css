@@ -1,0 +1,133 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* Image Column */
+.about__image-col {
+  position: relative;
+}
+.about__image-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.about__image-frame img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+.about__image-accent {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  right: 16px;
+  bottom: 16px;
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+/* Text Column */
+.about__label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+  margin-bottom: 16px;
+}
+
+.about__text-col h2 {
+  margin-bottom: 0;
+}
+.about__text-col h2 em {
+  font-style: italic;
+  color: var(--color-teal);
+}
+
+.about__gold-line {
+  margin: 20px 0 24px !important;
+}
+
+.about__text-col p {
+  color: #5a5a5a;
+  margin-bottom: 16px;
+}
+
+.about__text-col .btn {
+  margin-top: 12px;
+}
+
+/* Stats */
+.about__stats {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-linen);
+}
+
+.about__stat {
+  text-align: center;
+}
+
+.about__stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  line-height: 1;
+}
+
+.about__stat-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--color-warm-grey);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about__grid {
+    gap: 40px;
+  }
+  .about__image-frame img {
+    height: 400px;
+  }
+  .about__stats {
+    gap: 40px;
+  }
+  .about__stat-number {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about__image-accent {
+    display: none;
+  }
+  .about__image-frame img {
+    height: 300px;
+  }
+  .about__stats {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .about__stat-number {
+    font-size: 32px;
+  }
+}

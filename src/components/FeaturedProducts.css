@@ -1,0 +1,297 @@
+/* =============================================
+   Featured Products — Stamp Card Design
+   ============================================= */
+
+.featured-section {
+  padding: 80px 0 96px;
+}
+
+/* ---- Header ---- */
+.featured-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  gap: 24px;
+}
+
+.featured-header__label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-warm-grey);
+  margin-bottom: 8px;
+}
+
+.featured-header__title {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-charcoal);
+  letter-spacing: -0.02em;
+}
+
+.featured-header__btn {
+  flex-shrink: 0;
+  padding: 12px 28px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  background: transparent;
+  border: 1.5px solid var(--color-charcoal);
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+.featured-header__btn:hover {
+  background: var(--color-charcoal);
+  color: var(--color-white);
+}
+
+/* ---- Grid ---- */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ---- Stamp Card ---- */
+.fp-card {
+  position: relative;
+  background: var(--color-white);
+  border-radius: 16px 16px 0 0;
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+}
+.fp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Card body — image area */
+.fp-card__body {
+  position: relative;
+  background: var(--color-linen);
+  border-radius: 16px 16px 0 0;
+  padding: 20px 20px 16px;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Badge — top-left tag */
+.fp-card__badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  background: #E8E4A0;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+/* Heart — top-right */
+.fp-card__heart {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border: none;
+  border-radius: 50%;
+  color: var(--color-warm-grey);
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+.fp-card__heart:hover {
+  color: #e25555;
+  transform: scale(1.1);
+}
+.fp-card__heart.active {
+  color: #e25555;
+}
+
+/* Product image */
+.fp-card__image-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+}
+.fp-card__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+.fp-card:hover .fp-card__image {
+  transform: scale(1.06);
+}
+
+/* ---- Scalloped Edge ---- */
+.fp-card__scallop {
+  position: relative;
+  height: 16px;
+  background: var(--color-linen);
+  /* Create scalloped bottom using radial gradient mask */
+  mask-image: radial-gradient(circle 8px at 16px 16px, transparent 7px, black 7.5px);
+  mask-size: 32px 16px;
+  mask-position: -8px 0;
+  mask-repeat: repeat-x;
+  -webkit-mask-image: radial-gradient(circle 8px at 16px 16px, transparent 7px, black 7.5px);
+  -webkit-mask-size: 32px 16px;
+  -webkit-mask-position: -8px 0;
+  -webkit-mask-repeat: repeat-x;
+}
+
+/* ---- Info Section ---- */
+.fp-card__info {
+  padding: 20px 20px 22px;
+  background: var(--color-white);
+}
+
+.fp-card__name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-charcoal);
+  text-decoration: none;
+  margin-bottom: 4px;
+  transition: color var(--transition-fast);
+}
+.fp-card__name:hover {
+  color: var(--color-teal);
+}
+
+.fp-card__category {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-warm-grey);
+  margin-bottom: 16px;
+}
+
+/* Bottom row — price + cart */
+.fp-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fp-card__pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.fp-card__price {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+}
+
+.fp-card__original {
+  font-size: 14px;
+  color: var(--color-warm-grey);
+  text-decoration: line-through;
+}
+
+/* Cart icon button */
+.fp-card__cart-btn {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-linen);
+  background: var(--color-white);
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.fp-card__cart-btn:hover {
+  background: var(--color-teal);
+  border-color: var(--color-teal);
+  color: var(--color-white);
+  transform: scale(1.08);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .featured-header__title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-section {
+    padding: 56px 0 64px;
+  }
+  .featured-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .featured-header__title {
+    font-size: 30px;
+  }
+  .featured-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .fp-card__body {
+    min-height: 180px;
+    padding: 16px;
+  }
+  .fp-card__image-link {
+    height: 140px;
+  }
+  .fp-card__info {
+    padding: 14px 14px 18px;
+  }
+  .fp-card__name {
+    font-size: 14px;
+  }
+  .fp-card__price {
+    font-size: 20px;
+  }
+  .fp-card__cart-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 400px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}
