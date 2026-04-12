@@ -8,7 +8,7 @@ export default function Marquee() {
 
   const offerText = [
     '🎉 FLASH SALE: Use code SAVE20 for 20% off!',
-    '🎁 FREE SHIPPING on orders over $100',
+    '🎁 FREE SHIPPING on orders over AED 275',
     '✨ LUXURY QUALITY - Crafted with care since 2010',
     '🌟 NEW ARRIVALS - Shop the latest collection',
   ];

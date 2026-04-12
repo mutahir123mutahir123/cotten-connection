@@ -4,7 +4,7 @@ import { CartProvider } from './CartContext';
 import { WishlistProvider } from './WishlistContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import PageTransition from './components/PageTransition';
+import PremiumPageTransition from './components/PremiumPageTransition';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ShopPage = lazy(() => import('./pages/ShopPage'));
@@ -12,6 +12,7 @@ const ProductPage = lazy(() => import('./pages/ProductPage'));
 const CartPage = lazy(() => import('./pages/CartPage'));
 const CollectionPage = lazy(() => import('./pages/CollectionPage'));
 const WishlistPage = lazy(() => import('./pages/WishlistPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
 
 const PageLoader = () => (
   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh' }}>
@@ -26,7 +27,7 @@ function App() {
         <WishlistProvider>
           <Navbar />
           <main>
-            <PageTransition>
+            <PremiumPageTransition>
               <Suspense fallback={<PageLoader />}>
                 <Routes>
                   <Route path="/" element={<HomePage />} />
@@ -35,9 +36,10 @@ function App() {
                   <Route path="/cart" element={<CartPage />} />
                   <Route path="/collection/:id" element={<CollectionPage />} />
                   <Route path="/wishlist" element={<WishlistPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
                 </Routes>
               </Suspense>
-            </PageTransition>
+            </PremiumPageTransition>
           </main>
           <Footer />
         </WishlistProvider>

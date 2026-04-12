@@ -14,6 +14,9 @@ export default function PageTransition({ children }) {
     if (prevPathRef.current === location.pathname) return;
     prevPathRef.current = location.pathname;
 
+    // Scroll to top immediately
+    window.scrollTo({ top: 0, behavior: 'auto' });
+
     // Start exit animation
     setTransitioning(true);
     setPhase('exit');
@@ -21,7 +24,7 @@ export default function PageTransition({ children }) {
     const exitTimer = setTimeout(() => {
       // Swap content and scroll to top
       setDisplayChildren(children);
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'auto' });
       setPhase('enter');
 
       const enterTimer = setTimeout(() => {

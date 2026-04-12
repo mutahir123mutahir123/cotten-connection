@@ -37,7 +37,7 @@ export default function WishlistPage() {
                     {product.name}
                   </Link>
                   <span className="wishlist-card__category">{product.category}</span>
-                  <span className="wishlist-card__price">${product.price.toFixed(0)}</span>
+                  <span className="wishlist-card__price">AED {product.price.toFixed(0)}</span>
                   <div className="wishlist-card__actions">
                     <button 
                       className="wishlist-card__add-btn"

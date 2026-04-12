@@ -77,10 +77,10 @@ export default function ProductPage() {
             </div>
 
             <div className="product-page__price-wrap">
-              <span className="product-page__price">${product.price.toFixed(2)}</span>
+              <span className="product-page__price">AED {product.price.toFixed(2)}</span>
               {product.originalPrice && (
                 <>
-                  <span className="product-page__original">${product.originalPrice.toFixed(2)}</span>
+                  <span className="product-page__original">AED {product.originalPrice.toFixed(2)}</span>
                   <span className="product-page__discount">
                     Save {Math.round((1 - product.price / product.originalPrice) * 100)}%
                   </span>
@@ -132,7 +132,7 @@ export default function ProductPage() {
               {added ? (
                 <><Check size={18} /> Added to Cart!</>
               ) : (
-                <><ShoppingBag size={18} /> Add to Cart — ${(product.price * quantity).toFixed(2)}</>
+                <><ShoppingBag size={18} /> Add to Cart — AED {(product.price * quantity).toFixed(2)}</>
               )}
             </button>
 
@@ -140,7 +140,7 @@ export default function ProductPage() {
             <div className="product-page__trust">
               <div className="product-page__trust-item">
                 <Truck size={18} />
-                <span>Free shipping over $75</span>
+                <span>Free shipping over AED 275</span>
               </div>
               <div className="product-page__trust-item">
                 <RotateCcw size={18} />

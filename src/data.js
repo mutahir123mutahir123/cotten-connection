@@ -100,7 +100,7 @@ export const collections = [
     name: 'Bathrobes',
     category: 'Bathrobes',
     count: 8,
-    image: 'https://images.unsplash.com/photo-1620756236308-65c3ef5d25f3?w=600&h=800&fit=crop',
+    image: '/images/product-bathrobe.png',
     heroImage: 'https://images.unsplash.com/photo-1620756236308-65c3ef5d25f3?w=1920&h=600&fit=crop&q=80',
     description: 'Waffle weave, terry cloth & hooded robes',
     longDescription: 'Wrap yourself in our collection of premium bathrobes. From lightweight waffle weave for year-round comfort to plush terry cloth for those cold mornings, each robe features thoughtful details like deep pockets, matching belts, and elegant collars.',
@@ -189,6 +189,6 @@ export const navLinks = [
   { label: 'Shop', href: '/shop' },
   { label: 'Collections', href: '/#collections' },
   { label: 'About', href: '/#about' },
-  { label: 'Contact', href: '/#newsletter' },
+  { label: 'Contact', href: '/contact' },
   { label: 'Wishlist', href: '/wishlist' },
 ];

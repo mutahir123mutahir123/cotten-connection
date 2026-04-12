@@ -134,9 +134,9 @@ export default function ShopPage() {
                   <h3 className="shop-product-card__title">{product.name}</h3>
                 </Link>
                 <div className="shop-product-card__price-row">
-                  <span className="shop-product-card__price">${product.price.toFixed(2)}</span>
+                  <span className="shop-product-card__price">AED {product.price.toFixed(2)}</span>
                   {product.originalPrice && (
-                    <span className="shop-product-card__original-price">${product.originalPrice.toFixed(2)}</span>
+                    <span className="shop-product-card__original-price">AED {product.originalPrice.toFixed(2)}</span>
                   )}
                 </div>
                 <div className="shop-product-card__rating">

@@ -27,6 +27,8 @@
 .navbar__logo {
   display: flex;
   align-items: center;
+  margin-left: -40px;
+  gap: 12px;
 }
 
 .navbar__logo-img {
@@ -35,13 +37,29 @@
   object-fit: contain;
 }
 
+.navbar__logo-img--large {
+  height: 80px;
+}
+
 .navbar__logo-text {
   font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 600;
   color: var(--color-charcoal);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.05em;
   transition: color var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.navbar__logo-text--white {
+  color: var(--color-white) !important;
+}
+.navbar__logo-text-accent {
+  font-size: 14px;
+}
+.navbar__logo:hover {
+  color: var(--color-teal-dark);
 }
 .navbar__logo span {
   color: var(--color-teal);
@@ -60,7 +78,7 @@
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.03em;
-  color: var(--color-charcoal);
+  color: var(--color-white);
   position: relative;
   padding-bottom: 4px;
 }
@@ -71,13 +89,24 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--color-gold);
+  background: var(--color-white);
   transition: width 0.3s var(--ease-out-expo);
 }
 .navbar__links a:hover::after {
   width: 100%;
 }
 .navbar__links a:hover {
+  color: var(--color-white);
+}
+
+/* Scrolled state - charcoal */
+.navbar--scrolled .navbar__links a {
+  color: var(--color-charcoal);
+}
+.navbar--scrolled .navbar__links a::after {
+  background: var(--color-charcoal);
+}
+.navbar--scrolled .navbar__links a:hover {
   color: var(--color-charcoal);
 }
 
@@ -96,12 +125,12 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-round);
-  color: var(--color-charcoal);
+  color: var(--color-white);
   transition: background var(--transition-fast), color var(--transition-fast);
 }
 .navbar__cart:hover {
-  background: var(--color-linen);
-  color: var(--color-teal);
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--color-white);
 }
 
 .navbar__wishlist {
@@ -112,10 +141,26 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-round);
-  color: var(--color-charcoal);
+  color: var(--color-white);
   transition: background var(--transition-fast), color var(--transition-fast);
 }
 .navbar__wishlist:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--color-white);
+}
+
+/* Scrolled state - charcoal */
+.navbar--scrolled .navbar__cart {
+  color: var(--color-charcoal);
+}
+.navbar--scrolled .navbar__cart:hover {
+  background: var(--color-linen);
+  color: var(--color-teal);
+}
+.navbar--scrolled .navbar__wishlist {
+  color: var(--color-charcoal);
+}
+.navbar--scrolled .navbar__wishlist:hover {
   background: var(--color-linen);
   color: #e25555;
 }
@@ -150,11 +195,20 @@
   height: 44px;
   align-items: center;
   justify-content: center;
-  color: var(--color-charcoal);
+  color: var(--color-white);
   border-radius: var(--radius-md);
-  transition: background var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 .navbar__hamburger:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--color-white);
+}
+
+/* Scrolled state - hamburger */
+.navbar--scrolled .navbar__hamburger {
+  color: var(--color-charcoal);
+}
+.navbar--scrolled .navbar__hamburger:hover {
   background: var(--color-linen);
 }
 

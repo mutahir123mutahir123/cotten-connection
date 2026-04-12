@@ -109,10 +109,10 @@ export default function CollectionPage() {
                 </div>
 
                 <div className="product-card__price-row">
-                  <span className="product-card__price">${product.price.toFixed(2)}</span>
+                  <span className="product-card__price">AED {product.price.toFixed(2)}</span>
                   {product.originalPrice && (
                     <span className="product-card__original-price">
-                      ${product.originalPrice.toFixed(2)}
+                      AED {product.originalPrice.toFixed(2)}
                     </span>
                   )}
                 </div>

@@ -50,7 +50,7 @@ export default function CartPage() {
                     {item.name}
                   </Link>
                   <span className="cart-item__color">Color: {item.color}</span>
-                  <span className="cart-item__price">${item.price.toFixed(2)}</span>
+                  <span className="cart-item__price">AED {item.price.toFixed(2)}</span>
                 </div>
 
                 <div className="cart-item__actions">
@@ -65,7 +65,7 @@ export default function CartPage() {
                   </div>
 
                   <span className="cart-item__subtotal">
-                    ${(item.price * item.quantity).toFixed(2)}
+                    AED {(item.price * item.quantity).toFixed(2)}
                   </span>
 
                   <button
@@ -87,15 +87,15 @@ export default function CartPage() {
 
               <div className="cart-summary__row">
                 <span>Subtotal</span>
-                <span>${totalPrice.toFixed(2)}</span>
+                <span>AED {totalPrice.toFixed(2)}</span>
               </div>
               <div className="cart-summary__row">
                 <span>Shipping</span>
-                <span>{totalPrice >= 75 ? <span className="cart-summary__free">Free</span> : '$9.99'}</span>
+                <span>{totalPrice >= 275 ? <span className="cart-summary__free">Free</span> : 'AED 36.99'}</span>
               </div>
-              {totalPrice < 75 && (
+              {totalPrice < 275 && (
                 <p className="cart-summary__shipping-note">
-                  Add ${(75 - totalPrice).toFixed(2)} more for free shipping!
+                  Add AED {(275 - totalPrice).toFixed(2)} more for free shipping!
                 </p>
               )}
 
@@ -103,7 +103,7 @@ export default function CartPage() {
 
               <div className="cart-summary__row cart-summary__total">
                 <span>Total</span>
-                <span>${(totalPrice + (totalPrice >= 75 ? 0 : 9.99)).toFixed(2)}</span>
+                <span>AED {(totalPrice + (totalPrice >= 275 ? 0 : 36.99)).toFixed(2)}</span>
               </div>
 
               <button className="btn btn-primary btn-lg cart-summary__checkout">

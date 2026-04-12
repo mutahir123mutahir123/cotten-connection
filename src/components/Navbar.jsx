@@ -12,16 +12,24 @@ const Navbar = memo(function Navbar() {
   const { totalItems } = useCart();
   const { items: wishlistItems } = useWishlist();
   const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      if (isHome) setScrolled(window.scrollY > 40);
+      else setScrolled(true);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     setMenuOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    if (!isHome) setScrolled(true);
+  }, [isHome]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
@@ -48,7 +56,11 @@ const Navbar = memo(function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
 <Link to="/" className="navbar__logo">
-          <img src="/images/logo.jpeg" alt="Cotton Connection" className="navbar__logo-img" />
+          <img 
+            src={isHome && !scrolled ? "/images/logo.png" : "/images/logo1.png"} 
+            alt="Cotton Connection" 
+            className={`navbar__logo-img ${isHome && !scrolled ? 'navbar__logo-img--large' : ''}`}
+          />
         </Link>
 
         <ul className="navbar__links">

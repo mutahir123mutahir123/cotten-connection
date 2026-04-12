@@ -73,12 +73,12 @@ export default function FeaturedProducts() {
 
                 <div className="fp-card__bottom">
                   <div className="fp-card__pricing">
-                    <span className="fp-card__price">${product.price.toFixed(0)}</span>
-                    {product.originalPrice && (
-                      <span className="fp-card__original">
-                        ${product.originalPrice.toFixed(0)}
-                      </span>
-                    )}
+<span className="fp-card__price">AED {product.price.toFixed(0)}</span>
+                      {product.originalPrice && (
+                        <span className="fp-card__original">
+                          AED {product.originalPrice.toFixed(0)}
+                        </span>
+                      )}
                   </div>
                   <button
                     className="fp-card__cart-btn"

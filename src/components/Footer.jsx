@@ -13,7 +13,7 @@ const Footer = memo(function Footer() {
           {/* Brand */}
           <div className="footer__brand">
             <Link to="/" className="footer__logo">
-              <img src="/images/logo.jpeg" alt="Cotton Connection" className="footer__logo-img" />
+              <img src="/images/logo1.png" alt="Cotton Connection" className="footer__logo-img" />
             </Link>
             <p className="footer__tagline">
               Luxury comfort, everyday. Premium cotton textiles crafted
@@ -29,7 +29,7 @@ const Footer = memo(function Footer() {
               <li><Link to="/shop">Shop All</Link></li>
               <li><a href="/#collections">Collections</a></li>
               <li><a href="/#about">About Us</a></li>
-              <li><a href="/#newsletter">Contact</a></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
 
