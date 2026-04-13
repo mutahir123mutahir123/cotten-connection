@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ShoppingBag, SlidersHorizontal, X, Heart } from 'lucide-react';
 import { useCart } from '../CartContext';
-import { products } from '../data';
+import { useProducts } from '../hooks/useData';
 import './ShopPage.css';
 
 const categories = ['All', 'Towels', 'Bathrobes', 'Bed Sheets', 'Pillow Covers'];
@@ -15,6 +15,7 @@ const sortOptions = [
 
 export default function ShopPage() {
   const { addItem } = useCart();
+  const { products, loading } = useProducts();
   const [activeCategory, setActiveCategory] = useState('All');
   const [sortBy, setSortBy] = useState('featured');
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -32,7 +33,7 @@ export default function ShopPage() {
       default: break;
     }
     return items;
-  }, [activeCategory, sortBy]);
+  }, [activeCategory, sortBy, products]);
 
   return (
     <div className="shop-page">
@@ -87,17 +88,24 @@ export default function ShopPage() {
 
         {/* Results info */}
         <p className="shop-page__results">
-          Showing {filtered.length} product{filtered.length !== 1 ? 's' : ''}
-          {activeCategory !== 'All' && (
-            <button className="shop-page__clear-filter" onClick={() => setActiveCategory('All')}>
-              <X size={14} /> Clear filter
-            </button>
+          {loading ? 'Loading...' : (
+            <>
+              Showing {filtered.length} product{filtered.length !== 1 ? 's' : ''}
+              {activeCategory !== 'All' && (
+                <button className="shop-page__clear-filter" onClick={() => setActiveCategory('All')}>
+                  <X size={14} /> Clear filter
+                </button>
+              )}
+            </>
           )}
         </p>
 
         {/* Products Grid */}
         <div className="shop-page__grid">
-          {filtered.map((product) => (
+          {loading ? (
+            <div className="loading-placeholder">Loading products...</div>
+          ) : filtered.length > 0 ? (
+            filtered.map((product) => (
             <div 
               className="shop-product-card" 
               key={product.id}
@@ -149,17 +157,16 @@ export default function ShopPage() {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-
-        {filtered.length === 0 && (
-          <div className="shop-page__empty">
+          ))
+          ) : (
+            <div className="shop-page__empty">
             <p>No products found in this category.</p>
             <button className="btn btn-secondary" onClick={() => setActiveCategory('All')}>
               View All Products
             </button>
           </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

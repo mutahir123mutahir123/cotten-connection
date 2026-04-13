@@ -3,8 +3,16 @@ import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag, Menu, X, Heart } from 'lucide-react';
 import { useCart } from '../CartContext';
 import { useWishlist } from '../WishlistContext';
-import { navLinks } from '../data';
 import './Navbar.css';
+
+const defaultNavLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Shop', href: '/shop' },
+  { label: 'Collections', href: '/#collections' },
+  { label: 'About', href: '/#about' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Wishlist', href: '/wishlist' },
+];
 
 const Navbar = memo(function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -13,6 +21,7 @@ const Navbar = memo(function Navbar() {
   const { items: wishlistItems } = useWishlist();
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const navLinks = defaultNavLinks;
 
   useEffect(() => {
     const onScroll = () => {

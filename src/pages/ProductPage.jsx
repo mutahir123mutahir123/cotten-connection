@@ -2,20 +2,30 @@ import { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Star, ShoppingBag, ChevronLeft, Minus, Plus, Check, Truck, RotateCcw, Shield } from 'lucide-react';
 import { useCart } from '../CartContext';
-import { products } from '../data';
+import { useProduct } from '../hooks/useData';
 import './ProductPage.css';
 
 export default function ProductPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addItem } = useCart();
+  const { product, loading, error } = useProduct(id);
 
-  const product = products.find((p) => p.id === Number(id));
-  const [selectedColor, setSelectedColor] = useState(product?.colors?.[0] || '');
+  const [selectedColor, setSelectedColor] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
 
-  if (!product) {
+  if (loading) {
+    return (
+      <div className="product-page" style={{ paddingTop: 'calc(var(--navbar-height) + 64px)', textAlign: 'center' }}>
+        <div className="container">
+          <p>Loading product...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !product) {
     return (
       <div className="product-page" style={{ paddingTop: 'calc(var(--navbar-height) + 64px)', textAlign: 'center' }}>
         <div className="container">
@@ -27,12 +37,6 @@ export default function ProductPage() {
       </div>
     );
   }
-
-  const handleAddToCart = () => {
-    addItem(product, selectedColor, quantity);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
-  };
 
   return (
     <div className="product-page">
@@ -91,10 +95,10 @@ export default function ProductPage() {
             <p className="product-page__description">{product.description}</p>
 
             {/* Color Selector */}
-            {product.colors && (
+            {product.colors && product.colors.length > 0 && (
               <div className="product-page__option">
                 <label className="product-page__option-label">
-                  Color: <strong>{selectedColor}</strong>
+                  Color: <strong>{selectedColor || product.colors[0]}</strong>
                 </label>
                 <div className="product-page__color-options">
                   {product.colors.map((color) => (
@@ -127,7 +131,11 @@ export default function ProductPage() {
             {/* Add to Cart */}
             <button
               className={`btn btn-primary btn-lg product-page__add-btn ${added ? 'added' : ''}`}
-              onClick={handleAddToCart}
+              onClick={() => {
+                addItem(product, selectedColor || product.colors?.[0], quantity);
+                setAdded(true);
+                setTimeout(() => setAdded(false), 2000);
+              }}
             >
               {added ? (
                 <><Check size={18} /> Added to Cart!</>
@@ -156,7 +164,7 @@ export default function ProductPage() {
             <div className="product-page__details-list">
               <h3>Product Details</h3>
               <ul>
-                {product.details.map((detail, i) => (
+                {product.details?.map((detail, i) => (
                   <li key={i}>{detail}</li>
                 ))}
               </ul>

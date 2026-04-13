@@ -1,10 +1,11 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks';
-import { collections } from '../data';
+import { useCollections } from '../hooks/useData';
 import './Collections.css';
 
 export default function Collections() {
+  const { collections, loading } = useCollections();
   const headerRef = useScrollReveal();
 
   return (
@@ -19,7 +20,10 @@ export default function Collections() {
 
       <div className="container">
         <div className="collections__grid">
-          {collections.slice(0, 3).map((col, i) => (
+          {loading ? (
+            <div className="loading-placeholder">Loading collections...</div>
+          ) : (
+            collections.slice(0, 3).map((col, i) => (
             <Link
               to={`/collection/${col.id}`}
               className="collection-card"
@@ -38,8 +42,9 @@ export default function Collections() {
                 <p className="collection-card__desc">{col.description}</p>
                 <span className="collection-card__cta">Explore →</span>
               </div>
-            </Link>
-          ))}
+              </Link>
+            ))
+          )}
         </div>
       </div>
     </section>

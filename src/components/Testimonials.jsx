@@ -1,13 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import { useScrollReveal } from '../hooks';
-import { testimonials } from '../data';
+import { useTestimonials } from '../hooks/useData';
 import './Testimonials.css';
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState('right');
+  const { testimonials, loading } = useTestimonials();
   const headerRef = useScrollReveal();
 
   const goTo = useCallback((index, dir) => {
@@ -21,18 +22,30 @@ export default function Testimonials() {
   }, [isAnimating]);
 
   const next = useCallback(() => {
+    if (testimonials.length === 0) return;
     goTo((current + 1) % testimonials.length, 'right');
-  }, [current, goTo]);
+  }, [current, goTo, testimonials.length]);
 
   const prev = useCallback(() => {
+    if (testimonials.length === 0) return;
     goTo((current - 1 + testimonials.length) % testimonials.length, 'left');
-  }, [current, goTo]);
+  }, [current, goTo, testimonials.length]);
 
-  // Auto-advance
   useEffect(() => {
+    if (loading || testimonials.length === 0) return;
     const timer = setInterval(next, 6000);
     return () => clearInterval(timer);
-  }, [next]);
+  }, [next, loading, testimonials.length]);
+
+  if (loading || testimonials.length === 0) {
+    return (
+      <section className="testimonials section section-linen" id="testimonials">
+        <div className="container container-narrow">
+          <div className="loading-placeholder">Loading testimonials...</div>
+        </div>
+      </section>
+    );
+  }
 
   const t = testimonials[current];
 
