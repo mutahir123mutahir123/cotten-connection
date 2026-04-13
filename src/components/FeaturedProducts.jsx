@@ -1,16 +1,15 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, ShoppingCart } from 'lucide-react';
 import { useCart } from '../CartContext';
 import { useWishlist } from '../WishlistContext';
 import { useStaggerReveal, useScrollReveal } from '../hooks';
-import { useProducts } from '../hooks/useData.jsx';
+import { products as staticProducts } from '../data';
 import './FeaturedProducts.css';
 
 export default function FeaturedProducts() {
   const { addItem } = useCart();
   const { isWishlisted, toggleItem } = useWishlist();
-  const { products, loading } = useProducts();
+  const products = staticProducts;
   const headerRef = useScrollReveal();
   const gridRef = useStaggerReveal(null, '.fp-card', 150);
 
