@@ -1,5 +1,10 @@
 // Product & site data for Cotton Connection
 
+import productTowels from '../public/images/product-towels.png';
+import productBathrobe from '../public/images/product-bathrobe.png';
+import productBedsheets from '../public/images/product-bedsheets.png';
+import productPillowcovers from '../public/images/product-pillowcovers.png';
+
 export const products = [
   {
     id: 1,
@@ -9,7 +14,7 @@ export const products = [
     originalPrice: 64.99,
     rating: 4.9,
     reviews: 124,
-    image: '/images/product-towels.png',
+    image: productTowels,
     badge: 'Best Seller',
     description: 'Indulge in the ultimate bathing experience with our premium Egyptian cotton towel set. Featuring a luxuriously soft 700 GSM weave, these towels offer exceptional absorbency while remaining incredibly gentle on your skin. Each set includes 2 bath towels, 2 hand towels, and 2 face towels in coordinating colors.',
     details: [
@@ -29,7 +34,7 @@ export const products = [
     originalPrice: null,
     rating: 4.8,
     reviews: 86,
-    image: '/images/product-bathrobe.png',
+    image: productBathrobe,
     badge: 'New',
     description: 'Wrap yourself in cloud-like comfort with our signature waffle weave bathrobe. Crafted from premium long-staple cotton, this robe features an elegant shawl collar, deep pockets, and a matching self-tie belt. Lightweight yet warm, perfect for year-round wear.',
     details: [
@@ -49,7 +54,7 @@ export const products = [
     originalPrice: 149.99,
     rating: 4.9,
     reviews: 203,
-    image: '/images/product-bedsheets.png',
+    image: productBedsheets,
     badge: 'Sale',
     description: 'Transform your bedroom into a luxury retreat with our 400 thread count sateen bed sheet set. The silky-smooth finish glides against your skin while the breathable cotton keeps you comfortable all night. Includes a fitted sheet with deep pockets, a flat sheet, and two pillowcases.',
     details: [
@@ -69,7 +74,7 @@ export const products = [
     originalPrice: null,
     rating: 4.7,
     reviews: 67,
-    image: '/images/product-pillowcovers.png',
+    image: productPillowcovers,
     badge: null,
     description: 'Elevate your living space with our artisan-designed decorative pillow covers. Each cover features a unique subtle pattern woven into premium cotton, adding texture and warmth to any sofa, bed, or reading nook. Hidden zipper closure for a clean, polished look.',
     details: [
