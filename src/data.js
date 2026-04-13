@@ -1,10 +1,5 @@
 // Product & site data for Cotton Connection
 
-import productTowels from '../public/images/product-towels.png';
-import productBathrobe from '../public/images/product-bathrobe.png';
-import productBedsheets from '../public/images/product-bedsheets.png';
-import productPillowcovers from '../public/images/product-pillowcovers.png';
-
 export const products = [
   {
     id: 1,
@@ -14,7 +9,7 @@ export const products = [
     originalPrice: 64.99,
     rating: 4.9,
     reviews: 124,
-    image: productTowels,
+    image: '/images/product-towels.png',
     badge: 'Best Seller',
     description: 'Indulge in the ultimate bathing experience with our premium Egyptian cotton towel set. Featuring a luxuriously soft 700 GSM weave, these towels offer exceptional absorbency while remaining incredibly gentle on your skin. Each set includes 2 bath towels, 2 hand towels, and 2 face towels in coordinating colors.',
     details: [
@@ -34,7 +29,7 @@ export const products = [
     originalPrice: null,
     rating: 4.8,
     reviews: 86,
-    image: productBathrobe,
+    image: '/images/product-bathrobe.png',
     badge: 'New',
     description: 'Wrap yourself in cloud-like comfort with our signature waffle weave bathrobe. Crafted from premium long-staple cotton, this robe features an elegant shawl collar, deep pockets, and a matching self-tie belt. Lightweight yet warm, perfect for year-round wear.',
     details: [
@@ -54,7 +49,7 @@ export const products = [
     originalPrice: 149.99,
     rating: 4.9,
     reviews: 203,
-    image: productBedsheets,
+    image: '/images/product-bedsheets.png',
     badge: 'Sale',
     description: 'Transform your bedroom into a luxury retreat with our 400 thread count sateen bed sheet set. The silky-smooth finish glides against your skin while the breathable cotton keeps you comfortable all night. Includes a fitted sheet with deep pockets, a flat sheet, and two pillowcases.',
     details: [
@@ -74,7 +69,7 @@ export const products = [
     originalPrice: null,
     rating: 4.7,
     reviews: 67,
-    image: productPillowcovers,
+    image: '/images/product-pillowcovers.png',
     badge: null,
     description: 'Elevate your living space with our artisan-designed decorative pillow covers. Each cover features a unique subtle pattern woven into premium cotton, adding texture and warmth to any sofa, bed, or reading nook. Hidden zipper closure for a clean, polished look.',
     details: [
@@ -94,8 +89,8 @@ export const collections = [
     name: 'Towels',
     category: 'Towels',
     count: 12,
-    image: productTowels,
-    heroImage: productTowels,
+    image: '/images/product-towels.png',
+    heroImage: '/images/product-towels.png',
     description: 'Face, hand & bath towels in premium cotton',
     longDescription: 'Discover our complete range of premium Egyptian cotton towels. From plush bath towels to gentle face towels, each piece is crafted with 700 GSM weave for exceptional softness and absorbency. Available in a curated palette of natural colors.',
     subcategories: ['Face Towels', 'Hand Towels', 'Bath Towels', 'Towel Sets'],
@@ -105,8 +100,8 @@ export const collections = [
     name: 'Bathrobes',
     category: 'Bathrobes',
     count: 8,
-    image: productBathrobe,
-    heroImage: productBathrobe,
+    image: '/images/product-bathrobe.png',
+    heroImage: '/images/product-bathrobe.png',
     description: 'Waffle weave, terry cloth & hooded robes',
     longDescription: 'Wrap yourself in our collection of premium bathrobes. From lightweight waffle weave for year-round comfort to plush terry cloth for those cold mornings, each robe features thoughtful details like deep pockets, matching belts, and elegant collars.',
     subcategories: ['Waffle Weave', 'Terry Cloth', 'Hooded Robes', 'Lightweight'],
@@ -116,8 +111,8 @@ export const collections = [
     name: 'Bed Sheets',
     category: 'Bed Sheets',
     count: 15,
-    image: productBedsheets,
-    heroImage: productBedsheets,
+    image: '/images/product-bedsheets.png',
+    heroImage: '/images/product-bedsheets.png',
     description: 'Fitted, flat sheets & complete sets',
     longDescription: 'Transform your bedroom into a luxury retreat with our premium bed sheet collection. Available in sateen and percale weaves from 300 to 600 thread count, our sheets offer the perfect balance of silky smoothness and breathable comfort.',
     subcategories: ['Fitted Sheets', 'Flat Sheets', 'Sheet Sets', 'Duvet Covers'],
@@ -127,8 +122,8 @@ export const collections = [
     name: 'Pillow Covers',
     category: 'Pillow Covers',
     count: 10,
-    image: productPillowcovers,
-    heroImage: productPillowcovers,
+    image: '/images/product-pillowcovers.png',
+    heroImage: '/images/product-pillowcovers.png',
     description: 'Standard, decorative & euro shams',
     longDescription: 'Elevate any room with our artisan-designed pillow covers. From classic solid tones to elegant geometric patterns, each cover is made from premium cotton with hidden zipper closures for a polished, clean look.',
     subcategories: ['Standard Covers', 'Decorative Covers', 'Euro Shams', 'Bolster Covers'],
@@ -138,8 +133,8 @@ export const collections = [
     name: 'Gift Sets',
     category: 'Gift Sets',
     count: 6,
-    image: productTowels,
-    heroImage: productTowels,
+    image: '/images/product-towels.png',
+    heroImage: '/images/product-towels.png',
     description: 'Curated bundles for every occasion',
     longDescription: 'The perfect gift for any occasion. Our thoughtfully curated bundles pair our most loved products in beautiful packaging. From spa-day essentials to complete bedroom makeovers, each set is designed to delight.',
     subcategories: ['Bath Bundles', 'Bedroom Bundles', 'Luxury Gift Boxes', 'Wedding Sets'],
