@@ -56,9 +56,12 @@ export default function About() {
           <div className="about__image-col reveal-left" ref={imgRef}>
             <div className="about__image-frame">
               <img
-                src="https://images.unsplash.com/photo-1616627547584-bf28cee262db?w=600&h=800&fit=crop"
+                src="/images/collection-towels.png"
                 alt="Artisan folding premium cotton towels"
                 loading="lazy"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
               />
               <div className="about__image-accent" />
             </div>
