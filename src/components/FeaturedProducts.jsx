@@ -4,7 +4,7 @@ import { Heart, ShoppingCart } from 'lucide-react';
 import { useCart } from '../CartContext';
 import { useWishlist } from '../WishlistContext';
 import { useStaggerReveal, useScrollReveal } from '../hooks';
-import { useProducts } from '../hooks/useData';
+import { useProducts } from '../hooks/useData.jsx';
 import './FeaturedProducts.css';
 
 export default function FeaturedProducts() {

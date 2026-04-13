@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Star, ShoppingBag, ChevronLeft, Minus, Plus, Check, Truck, RotateCcw, Shield } from 'lucide-react';
 import { useCart } from '../CartContext';
-import { useProduct } from '../hooks/useData';
+import { useProduct } from '../hooks/useData.jsx';
 import './ProductPage.css';
 
 export default function ProductPage() {

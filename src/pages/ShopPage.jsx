@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ShoppingBag, SlidersHorizontal, X, Heart } from 'lucide-react';
 import { useCart } from '../CartContext';
-import { useProducts } from '../hooks/useData';
+import { useProducts } from '../hooks/useData.jsx';
 import './ShopPage.css';
 
 const categories = ['All', 'Towels', 'Bathrobes', 'Bed Sheets', 'Pillow Covers'];

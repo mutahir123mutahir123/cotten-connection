@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 import { useScrollReveal } from '../hooks';
-import { useTestimonials } from '../hooks/useData';
+import { useTestimonials } from '../hooks/useData.jsx';
 import './Testimonials.css';
 
 export default function Testimonials() {

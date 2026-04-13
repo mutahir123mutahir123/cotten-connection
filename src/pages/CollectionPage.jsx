@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Star, ShoppingBag, ChevronRight } from 'lucide-react';
 import { useCart } from '../CartContext';
 import { useScrollReveal, useStaggerReveal } from '../hooks';
-import { useCollection, useProducts, useCollections } from '../hooks/useData';
+import { useCollection, useProducts, useCollections } from '../hooks/useData.jsx';
 import './CollectionPage.css';
 
 export default function CollectionPage() {

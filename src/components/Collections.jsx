@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks';
-import { useCollections } from '../hooks/useData';
+import { useCollections } from '../hooks/useData.jsx';
 import './Collections.css';
 
 export default function Collections() {

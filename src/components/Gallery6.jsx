@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from './ui/Button';
-import { useCollections } from '../hooks/useData';
+import { useCollections } from '../hooks/useData.jsx';
 import './Gallery6.css';
 
 export default function Gallery6({

@@ -17,6 +17,7 @@ export function useProducts() {
         }
       })
       .catch(err => {
+        console.error('Error fetching products:', err);
         if (mounted) {
           setError(err.message);
           setLoading(false);
