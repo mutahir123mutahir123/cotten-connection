@@ -3,15 +3,13 @@ import { useParams, Link } from 'react-router-dom';
 import { Star, ShoppingBag, ChevronRight } from 'lucide-react';
 import { useCart } from '../CartContext';
 import { useScrollReveal, useStaggerReveal } from '../hooks';
-import { useCollection, useProducts, useCollections } from '../hooks/useData.jsx';
+import { products, collections } from '../data';
 import './CollectionPage.css';
 
 export default function CollectionPage() {
   const { id } = useParams();
   const { addItem } = useCart();
-  const { collection, loading: collectionLoading } = useCollection(id);
-  const { products, loading: productsLoading } = useProducts();
-  const { collections: allCollections, loading: collectionsLoading } = useCollections();
+  const collection = collections.find((c) => c.id === id);
   const headerRef = useScrollReveal();
   const gridRef = useStaggerReveal(null, '.product-card', 120);
 
@@ -20,16 +18,6 @@ export default function CollectionPage() {
     const matched = products.filter((p) => p.category === collection.category);
     return matched.length > 0 ? matched : products;
   }, [collection, products]);
-
-  if (collectionLoading || productsLoading || collectionsLoading) {
-    return (
-      <div className="collection-page">
-        <div className="container" style={{ paddingTop: 'calc(var(--navbar-height) + 80px)', textAlign: 'center' }}>
-          <p>Loading collection...</p>
-        </div>
-      </div>
-    );
-  }
 
   if (!collection) {
     return (
@@ -152,12 +140,12 @@ export default function CollectionPage() {
         <div className="collection-page__other">
           <h2>Explore Other Collections</h2>
           <div className="collection-page__other-grid">
-            {allCollections
+            {collections
               .filter((c) => c.id !== id)
               .slice(0, 4)
               .map((col) => (
                 <Link to={`/collection/${col.id}`} className="collection-page__other-card" key={col.id}>
-                  <img src={col.image} alt={col.name} loading="lazy" />
+                  <img src={col.image} alt={col.name} loading="lazy" onError={(e) => { e.target.src = '/images/product-towels.png'; }} />
                   <div className="collection-page__other-overlay" />
                   <div className="collection-page__other-info">
                     <h3>{col.name}</h3>
