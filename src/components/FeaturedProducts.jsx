@@ -57,6 +57,9 @@ export default function FeaturedProducts() {
                       alt={product.name}
                       className="fp-card__image"
                       loading="lazy"
+                      onError={(e) => {
+                        e.target.src = '/images/product-towels.png';
+                      }}
                     />
                   </Link>
                 </div>
