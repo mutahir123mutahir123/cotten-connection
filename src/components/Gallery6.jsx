@@ -5,13 +5,12 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from './ui/Button';
-import { useCollections } from '../hooks/useData.jsx';
+import { collections } from '../data';
 import './Gallery6.css';
 
 export default function Gallery6({
   heading = 'Our Collections',
 }) {
-  const { collections, loading } = useCollections();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
 
@@ -77,10 +76,7 @@ export default function Gallery6({
       <div className="gallery6__slider-wrap">
         <div className="gallery6__slider" ref={emblaRef}>
           <div className="gallery6__track">
-            {loading ? (
-              <div className="loading-placeholder">Loading collections...</div>
-            ) : (
-              collections.map((item) => (
+            {collections.map((item) => (
               <Link
                 to={`/collection/${item.id}`}
                 className="gallery6__card"
@@ -102,8 +98,7 @@ export default function Gallery6({
                   Shop Now <ArrowRight size={16} className="gallery6__card-arrow" />
                 </span>
               </Link>
-            ))
-            )}
+            ))}
           </div>
         </div>
       </div>

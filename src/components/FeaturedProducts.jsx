@@ -3,13 +3,12 @@ import { Heart, ShoppingCart } from 'lucide-react';
 import { useCart } from '../CartContext';
 import { useWishlist } from '../WishlistContext';
 import { useStaggerReveal, useScrollReveal } from '../hooks';
-import { useProducts } from '../hooks/useData.jsx';
+import { products } from '../data';
 import './FeaturedProducts.css';
 
 export default function FeaturedProducts() {
   const { addItem } = useCart();
   const { isWishlisted, toggleItem } = useWishlist();
-  const { products, loading } = useProducts();
   const headerRef = useScrollReveal();
   const gridRef = useStaggerReveal(null, '.fp-card', 150);
 
@@ -27,10 +26,7 @@ export default function FeaturedProducts() {
         </div>
 
         <div className="featured-grid" ref={gridRef}>
-          {loading ? (
-            <div className="loading-placeholder">Loading products...</div>
-          ) : (
-            products.map((product) => (
+          {products.map((product) => (
               <div className="fp-card reveal" key={product.id}>
                 <div className="fp-card__body">
                   {product.badge && (
@@ -88,8 +84,7 @@ export default function FeaturedProducts() {
                   </div>
                 </div>
               </div>
-            ))
-          )}
+            ))}
         </div>
       </div>
     </section>

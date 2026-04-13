@@ -50,7 +50,13 @@ export default function CollectionPage() {
       {/* Hero Banner */}
       <div className="collection-page__hero">
         <div className="collection-page__hero-bg">
-          <img src={collection.heroImage} alt={collection.name} />
+          <img 
+            src={collection.heroImage} 
+            alt={collection.name}
+            onError={(e) => {
+              e.target.src = '/images/product-towels.png';
+            }} 
+          />
         </div>
         <div className="collection-page__hero-overlay" />
         <div className="collection-page__hero-content container">
@@ -93,6 +99,9 @@ export default function CollectionPage() {
                   alt={product.name}
                   className="product-card__image"
                   loading="lazy"
+                  onError={(e) => {
+                    e.target.src = '/images/product-towels.png';
+                  }}
                 />
                 {product.badge && (
                   <span className={`product-card__badge ${product.badge === 'Sale' ? 'badge--sale' : ''}`}>
