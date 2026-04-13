@@ -29,10 +29,7 @@ export default function FeaturedProducts() {
 
         {/* Product Grid */}
         <div className="featured-grid" ref={gridRef}>
-          {loading ? (
-            <div className="loading-placeholder">Loading products...</div>
-          ) : (
-            products.map((product) => (
+          {products.map((product) => (
               <div className="fp-card reveal" key={product.id}>
                 <div className="fp-card__body">
                   {product.badge && (
@@ -87,9 +84,10 @@ export default function FeaturedProducts() {
                     >
                       <ShoppingCart size={17} />
                     </button>
-                  </div>
-                </div>
-              </div>
+</div>
+            </div>
+          ))}
+        </div>
             ))
           )}
         </div>
