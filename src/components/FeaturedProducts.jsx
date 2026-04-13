@@ -3,20 +3,19 @@ import { Heart, ShoppingCart } from 'lucide-react';
 import { useCart } from '../CartContext';
 import { useWishlist } from '../WishlistContext';
 import { useStaggerReveal, useScrollReveal } from '../hooks';
-import { products as staticProducts } from '../data';
+import { useProducts } from '../hooks/useData.jsx';
 import './FeaturedProducts.css';
 
 export default function FeaturedProducts() {
   const { addItem } = useCart();
   const { isWishlisted, toggleItem } = useWishlist();
-  const products = staticProducts;
+  const { products, loading } = useProducts();
   const headerRef = useScrollReveal();
   const gridRef = useStaggerReveal(null, '.fp-card', 150);
 
   return (
     <section className="featured-section section-pink" id="featured">
       <div className="container container-wide">
-        {/* Header — left-aligned with button on right */}
         <div className="featured-header reveal" ref={headerRef}>
           <div className="featured-header__text">
             <span className="featured-header__label">Our Best</span>
@@ -27,9 +26,11 @@ export default function FeaturedProducts() {
           </Link>
         </div>
 
-        {/* Product Grid */}
         <div className="featured-grid" ref={gridRef}>
-          {products.map((product) => (
+          {loading ? (
+            <div className="loading-placeholder">Loading products...</div>
+          ) : (
+            products.map((product) => (
               <div className="fp-card reveal" key={product.id}>
                 <div className="fp-card__body">
                   {product.badge && (
@@ -84,10 +85,9 @@ export default function FeaturedProducts() {
                     >
                       <ShoppingCart size={17} />
                     </button>
-</div>
-            </div>
-          ))}
-        </div>
+                  </div>
+                </div>
+              </div>
             ))
           )}
         </div>
