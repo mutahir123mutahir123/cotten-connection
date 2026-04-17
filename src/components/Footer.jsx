@@ -14,7 +14,7 @@ const Footer = memo(function Footer() {
           <div className="footer__brand">
             <Link to="/" className="footer__logo">
               <img src="/images/logo1.png" alt="Cotton Connection" className="footer__logo-img" />
-              <span className="footer__logo-text">THE COTTON CONNECTION</span>
+              <span className="footer__logo-text">The Cotton Connection</span>
             </Link>
             <p className="footer__tagline">
               Luxury comfort, everyday. Premium cotton textiles crafted
