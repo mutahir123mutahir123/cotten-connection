@@ -14,6 +14,7 @@ const Footer = memo(function Footer() {
           <div className="footer__brand">
             <Link to="/" className="footer__logo">
               <img src="/images/logo1.png" alt="Cotton Connection" className="footer__logo-img" />
+              <span className="footer__logo-text">THE COTTON CONNECTION</span>
             </Link>
             <p className="footer__tagline">
               Luxury comfort, everyday. Premium cotton textiles crafted
@@ -60,7 +61,7 @@ const Footer = memo(function Footer() {
               </a>
             </div>
             <p className="footer__social-text">
-              @cottonconnection
+              @thecottonconnection
             </p>
           </div>
         </div>
@@ -69,7 +70,7 @@ const Footer = memo(function Footer() {
 
         <div className="footer__bottom">
           <p className="footer__copyright">
-            © {year} Cotton Connection. All rights reserved.
+            © {year}The Cotton Connection. All rights reserved.
           </p>
 
           <div className="footer__payments">
